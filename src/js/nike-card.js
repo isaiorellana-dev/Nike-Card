@@ -37,7 +37,6 @@ class nikeCard extends HTMLElement {
     template.innerHTML = `
       <article>
         <div class="head">
-          <p>Nike</p>
           <img src="${this.img}" alt="${this.title}">
         </div>
         <div class="card-body">
@@ -68,9 +67,10 @@ class nikeCard extends HTMLElement {
           color: #fff;
         }
         article {
+          position: relative;
           display: flex;
           flex-direction: column;
-          max-width: 800px;
+          max-width: 370px;
           height: fit-content;
           background: var(--background-primary);
         }
@@ -80,12 +80,16 @@ class nikeCard extends HTMLElement {
           padding-top: 15px;
           padding-left: 25px;
         }
-        .head p {
+        .head:before {
+          position: absolute;
+          top: -0px;
+          left: 10px;
           font-size: 80px;
-          font-weight: bold;
-          color: var(--brand-color);
-          margin: 0;
-        }
+          font-weight: 800;
+          color: #000;
+          content: 'Nike';
+          opacity: 0.1;
+      }
         .head img {
           position: absolute;
           max-width: 300px;
@@ -121,17 +125,32 @@ class nikeCard extends HTMLElement {
           font-weight: bold;
           color: #fff;
           background: var(--background-primary);
-          border: none;
           border-radius: 30px;
+          cursor: pointer;
         }
-        @media screen(max-width: 560px) {
+        @media (min-width: 800px) {
           article {
             flex-direction: row;
+            max-width: 800px;
+          }
+          .head {
+            height: auto;
+            width: 280px;
+            padding-top: 5px;
+            padding-left: 5px;
           }
           .head img {
-            max-width: 400px;
+            max-width: 440px;
+            transform: rotate(330deg);
+            bottom: 0;
+            right: -35px;
           }
-        }
+          .card-body {
+            width: 360px;
+          }
+          .card-body p {
+            padding-left: 20px;
+          }
       </style>
     `
   }
