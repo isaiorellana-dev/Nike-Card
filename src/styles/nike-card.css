@@ -26,3 +26,7 @@ nike-card {
   --brand-color: #5c2c2c;
   --category-color: gold;
 }
+
+.nike-react {
+  --background-primary: #90b25a;
+}
